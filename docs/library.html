@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog | Unofficial™</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root{--primary:#e63946;--secondary:#ef233c;--accent:#ff0000;--dark:#0d0d0d;--darker:#000000;--light:#f8f9fa;--gray-bg:rgba(255,255,255,0.05);--glow:0 0 10px rgba(230,57,70,0.5)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:var(--darker);color:var(--light);min-height:100vh;overflow-x:hidden;display:flex;flex-direction:column}.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}.navbar{position:fixed;top:0;width:100%;padding:20px 0;z-index:100;transition:all 0.3s ease;background:rgba(13,13,13,0.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(230,57,70,0.3);height:auto;display:flex;align-items:center;justify-content:center}.navbar.scrolled{background:rgba(13,13,13,0.95);padding:15px 0;box-shadow:0 5px 20px rgba(0,0,0,0.5)}.navbar-brand{font-size:1.8rem;font-weight:700;color:var(--light);text-decoration:none;display:flex;align-items:center;text-shadow:0 0 10px rgba(230,57,70,0.5);transition:all 0.3s}.navbar-brand:hover{color:var(--light);text-shadow:0 0 15px rgba(230,57,70,0.8)}.navbar-brand i{color:var(--primary);margin-right:10px;transition:transform 0.3s}.navbar-brand:hover i{transform:rotate(15deg)}.main-container{display:flex;flex:1;padding-top:80px}.content{flex:1;padding:40px;background:linear-gradient(135deg,var(--dark) 0%,var(--darker) 100%);position:relative}.content::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(230,57,70,0.1) 0%,transparent 70%);z-index:-1;animation:pulse 15s infinite alternate}.search-container{max-width:800px;margin:0 auto 40px}.search-box{display:flex;background:rgba(20,20,20,0.7);border-radius:8px;overflow:hidden;border:1px solid rgba(230,57,70,0.3);transition:all 0.3s ease;backdrop-filter:blur(10px)}.search-box:focus-within{border-color:var(--primary);box-shadow:var(--glow)}.search-input{flex:1;padding:15px 20px;background:transparent;border:none;color:white;font-size:1rem}.search-input::placeholder{color:rgba(255,255,255,0.3)}.search-button{padding:0 25px;background:linear-gradient(45deg,var(--primary),var(--secondary));color:white;border:none;cursor:pointer;transition:all 0.3s ease;display:flex;align-items:center;justify-content:center}.search-button:hover{background:linear-gradient(45deg,var(--secondary),var(--accent))}.games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px}.game-card{background:rgba(20,20,20,0.7);border-radius:15px;overflow:hidden;border:1px solid rgba(230,57,70,0.1);transition:all 0.3s ease;display:flex;flex-direction:column;height:100%;position:relative;backdrop-filter:blur(10px)}.game-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(230,57,70,0.1) 0%,transparent 100%);z-index:-1}.game-card:hover{transform:translateY(-10px);border-color:var(--primary);box-shadow:0 15px 30px rgba(230,57,70,0.1)}.game-info{padding:30px;flex:1;display:flex;flex-direction:column}.game-title{font-size:1.3rem;margin-bottom:15px;color:white;font-weight:600;position:relative;display:inline-block}.game-title::after{content:'';position:absolute;bottom:-5px;left:0;width:50px;height:2px;background:var(--primary)}.game-meta{margin-top:auto;padding-top:20px}.game-size{display:flex;align-items:center;gap:10px;background:rgba(230,57,70,0.1);color:var(--primary);padding:10px 15px;border-radius:6px;font-size:0.9rem;margin-bottom:20px;width:fit-content;border:1px solid rgba(230,57,70,0.3)}.download-button{width:100%;padding:15px;background:linear-gradient(45deg,var(--primary),var(--secondary));color:white;border:none;border-radius:50px;font-weight:600;cursor:pointer;transition:all 0.3s ease;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:15px;position:relative;overflow:hidden;box-shadow:0 10px 20px rgba(230,57,70,0.3)}.download-button:hover{background:linear-gradient(45deg,var(--secondary),var(--accent));transform:translateY(-3px);box-shadow:0 15px 30px rgba(230,57,70,0.5)}.download-button::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(to bottom right,rgba(255,255,255,0) 45%,rgba(255,255,255,0.1) 50%,rgba(255,255,255,0) 55%);transform:rotate(30deg);animation:shine 3s infinite}.custom-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity 0.3s ease}.custom-modal.active{opacity:1;pointer-events:all}.custom-modal-content{background:rgba(20,20,20,0.95);border:1px solid var(--primary);border-radius:15px;width:90%;max-width:500px;max-height:80vh;overflow-y:auto;padding:30px;box-shadow:0 15px 40px rgba(230,57,70,0.3);transform:translateY(20px);transition:transform 0.3s ease;backdrop-filter:blur(10px)}.custom-modal.active .custom-modal-content{transform:translateY(0)}.custom-modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;padding-bottom:15px;border-bottom:1px solid rgba(230,57,70,0.3)}.custom-modal-title{color:var(--primary);font-size:1.5rem;font-weight:700;background:linear-gradient(45deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.custom-modal-close{background:none;border:none;color:var(--light);font-size:1.8rem;cursor:pointer;transition:all 0.3s ease}.custom-modal-close:hover{color:var(--primary);transform:rotate(90deg)}.custom-modal-body{margin-bottom:25px}.download-option{width:100%;padding:18px;margin-bottom:15px;background:rgba(30,30,30,0.7);border:1px solid rgba(230,57,70,0.2);border-radius:10px;color:white;font-weight:600;text-align:left;cursor:pointer;transition:all 0.3s ease;display:flex;align-items:center;gap:15px;backdrop-filter:blur(5px)}.download-option:hover{background:rgba(230,57,70,0.2);transform:translateY(-3px);border-color:var(--primary);box-shadow:0 5px 15px rgba(230,57,70,0.2)}.download-option i{font-size:1.3rem;color:var(--primary)}.option-info{flex:1}.loading-container{display:flex;justify-content:center;align-items:center;height:300px}.spinner{width:60px;height:60px;border:5px solid rgba(255,255,255,0.1);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite}
+
+        /* Estilos de paginação */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .pagination-button {
+            padding: 8px 14px;
+            background: rgba(30, 30, 30, 0.7);
+            color: white;
+            border: 1px solid rgba(230, 57, 70, 0.3);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 36px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .pagination-button:hover {
+            background: rgba(230, 57, 70, 0.3);
+            border-color: var(--primary);
+        }
+        .pagination-button.active {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-color: var(--primary);
+            font-weight: bold;
+        }
+        .pagination-button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .pagination-ellipsis {
+            padding: 8px 12px;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilos para o modal de anúncio */
+        .announcement-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .announcement-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .announcement-content {
+            background: rgba(20, 20, 20, 0.95);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(230, 57, 70, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .announcement-modal.active .announcement-content {
+            transform: translateY(0);
+        }
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(230, 57, 70, 0.3);
+        }
+        .announcement-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .announcement-body {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .announcement-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(230, 57, 70, 0.3);
+        }
+        .announcement-button {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .announcement-button:hover {
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+        .announcement-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .announcement-checkbox input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary);
+        }
+
+@keyframes pulse{0%{transform:scale(1);opacity:0.5}100%{transform:scale(1.2);opacity:0.8}}@keyframes shine{0%{transform:rotate(30deg) translate(-30%,-30%)}100%{transform:rotate(30deg) translate(30%,30%)}}@keyframes spin{to{transform:rotate(360deg)}}@media (max-width:768px){.content{padding:30px 20px}.games-grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}.search-input{padding:12px 15px}.custom-modal-content{width:95%;padding:20px}.game-info{padding:20px}.game-title{font-size:1.2rem}.download-button{padding:12px}.announcement-content{padding:20px}.announcement-title{font-size:1.3rem}}@media (max-width:576px){.navbar{padding:15px 0}.navbar-brand{font-size:1.5rem}.games-grid{grid-template-columns:1fr}.search-container{margin-bottom:30px}.loading-container{height:200px}.spinner{width:50px;height:50px;border-width:4px}.announcement-footer{flex-direction:column;gap:15px;align-items:flex-start}.announcement-button{width:100%}}
+    </style>
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" as="script">
+    <link rel="preconnect" href="https://unofficial.ct.ws">
+</head>
+<body>
+    <!-- Modal de anúncio -->
+    <div id="announcementModal" class="announcement-modal">
+        <div class="announcement-content">
+            <div class="announcement-header">
+                <h3 class="announcement-title">We are on Hydra Launcher!</h3>
+                <button class="custom-modal-close" id="closeAnnouncementModal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="announcement-body">
+                <p>We are excited to announce that <strong>Unofficial™</strong> is now available as a download source for <strong>Hydra Launcher</strong>!</p>
+                
+                <p>This new alternative allows you to download games directly from our source, offering a reliable option when the main site is under maintenance or facing technical issues.</p>
+                
+                <p>Try out this new feature and enjoy a more stable download experience!</p>
+            </div>
+            <div class="announcement-footer">
+                <div class="announcement-checkbox">
+                    <input type="checkbox" id="dontShowAgain">
+                    <label for="dontShowAgain">Don't show again</label>
+                </div>
+                <button class="announcement-button" id="goToHydraButton">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="downloadModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <h3 class="custom-modal-title" id="modalTitle">Download Options</h3>
+                <button class="custom-modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="custom-modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                Unofficial™
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <main class="content">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search for games..." aria-label="Search games">
+                        <button class="search-button" id="searchButton" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="loading" class="loading-container">
+                    <div class="spinner"></div>
+                </div>
+
+                <div class="games-grid" id="gamesGrid"></div>
+                <div id="pagination-container" class="pagination-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+        // Configuração
+        const SOURCE_CONFIG = {
+            source: {
+                name: "source",
+                url: "https://raw.githubusercontent.com/henryyzzkx/unofficial/refs/heads/main/unofficial.json",
+                isTorrent: false
+            }
+        };
+
+        // Variáveis globais
+        let gamesData = [];
+        let allSourcesData = {};
+        let filteredGames = [];
+        let searchTimeout;
+
+        // Elementos DOM
+        const domElements = {
+            downloadModal: document.getElementById('downloadModal'),
+            modalTitle: document.getElementById('modalTitle'),
+            modalBody: document.getElementById('modalBody'),
+            closeModal: document.getElementById('closeModal'),
+            searchInput: document.getElementById('searchInput'),
+            searchButton: document.getElementById('searchButton'),
+            loading: document.getElementById('loading'),
+            gamesGrid: document.getElementById('gamesGrid'),
+            navbar: document.querySelector('.navbar'),
+            paginationContainer: document.getElementById('pagination-container'),
+            announcementModal: document.getElementById('announcementModal'),
+            closeAnnouncementModal: document.getElementById('closeAnnouncementModal'),
+            dontShowAgain: document.getElementById('dontShowAgain'),
+            goToHydraButton: document.getElementById('goToHydraButton')
+        };
+
+        // Sistema de Paginação
+        const pagination = {
+            currentPage: 1,
+            itemsPerPage: 21,
+            totalPages: 1,
+            maxVisibleButtons: 5,
+            
+            init() {
+                if (!domElements.paginationContainer) {
+                    this.createPaginationContainer();
+                }
+                this.render();
+            },
+            
+            createPaginationContainer() {
+                const container = document.createElement('div');
+                container.id = 'pagination-container';
+                container.className = 'pagination-container';
+                domElements.gamesGrid.after(container);
+                domElements.paginationContainer = container;
+            },
+            
+            render() {
+                if (!filteredGames || filteredGames.length <= this.itemsPerPage) {
+                    if (domElements.paginationContainer) {
+                        domElements.paginationContainer.innerHTML = '';
+                    }
+                    return;
+                }
+                
+                this.totalPages = Math.ceil(filteredGames.length / this.itemsPerPage);
+                let html = '';
+                
+                // Botão Anterior
+                html += `<button class="pagination-button ${this.currentPage === 1 ? 'disabled' : ''}" 
+                         onclick="pagination.prevPage()" ${this.currentPage === 1 ? 'disabled' : ''}>
+                         &laquo;</button>`;
+                
+                // Lógica para mostrar páginas
+                let startPage, endPage;
+                if (this.totalPages <= this.maxVisibleButtons) {
+                    startPage = 1;
+                    endPage = this.totalPages;
+                } else {
+                    const maxVisibleBeforeCurrent = Math.floor(this.maxVisibleButtons / 2);
+                    const maxVisibleAfterCurrent = Math.ceil(this.maxVisibleButtons / 2) - 1;
+                    
+                    if (this.currentPage <= maxVisibleBeforeCurrent) {
+                        startPage = 1;
+                        endPage = this.maxVisibleButtons;
+                    } else if (this.currentPage + maxVisibleAfterCurrent >= this.totalPages) {
+                        startPage = this.totalPages - this.maxVisibleButtons + 1;
+                        endPage = this.totalPages;
+                    } else {
+                        startPage = this.currentPage - maxVisibleBeforeCurrent;
+                        endPage = this.currentPage + maxVisibleAfterCurrent;
+                    }
+                }
+
+                // Mostrar primeira página se necessário
+                if (startPage > 1) {
+                    html += `<button class="pagination-button" onclick="pagination.goToPage(1)">1</button>`;
+                    if (startPage > 2) {
+                        html += `<span class="pagination-ellipsis">...</span>`;
+                    }
+                }
+
+                // Botões numéricos
+                for (let i = startPage; i <= endPage; i++) {
+                    html += `<button class="pagination-button ${i === this.currentPage ? 'active' : ''}" 
+                             onclick="pagination.goToPage(${i})">${i}</button>`;
+                }
+
+                // Mostrar última página se necessário
+                if (endPage < this.totalPages) {
+                    if (endPage < this.totalPages - 1) {
+                        html += `<span class="pagination-ellipsis">...</span>`;
+                    }
+                    html += `<button class="pagination-button" onclick="pagination.goToPage(${this.totalPages})">
+                             ${this.totalPages}</button>`;
+                }
+                
+                // Botão Próximo
+                html += `<button class="pagination-button ${this.currentPage === this.totalPages ? 'disabled' : ''}" 
+                         onclick="pagination.nextPage()" ${this.currentPage === this.totalPages ? 'disabled' : ''}>
+                         &raquo;</button>`;
+                
+                if (domElements.paginationContainer) {
+                    domElements.paginationContainer.innerHTML = html;
+                }
+            },
+            
+            prevPage() {
+                if (this.currentPage > 1) {
+                    this.goToPage(this.currentPage - 1);
+                }
+            },
+            
+            nextPage() {
+                if (this.currentPage < this.totalPages) {
+                    this.goToPage(this.currentPage + 1);
+                }
+            },
+            
+            goToPage(page) {
+                if (page < 1 || page > this.totalPages) return;
+                this.currentPage = page;
+                this.updateDisplay();
+            },
+            
+            updateDisplay() {
+                this.render();
+                const start = (this.currentPage - 1) * this.itemsPerPage;
+                const end = start + this.itemsPerPage;
+                const pageGames = filteredGames.slice(start, end);
+                displayGames(pageGames);
+                
+                window.scrollTo({
+                    top: domElements.gamesGrid.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            },
+            
+            reset() {
+                this.currentPage = 1;
+                if (filteredGames && filteredGames.length > 0) {
+                    this.totalPages = Math.ceil(filteredGames.length / this.itemsPerPage);
+                } else {
+                    this.totalPages = 1;
+                }
+                this.updateDisplay();
+            }
+        };
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', async () => {
+            setupEventListeners();
+            await preloadAllSources();
+            await loadGames();
+            setupScrollListener();
+            pagination.init();
+            checkAndShowAnnouncement();
+        });
+
+        function setupEventListeners() {
+            // Debounce para pesquisa (300ms)
+            domElements.searchInput.addEventListener('input', () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(filterGames, 300);
+            });
+            
+            domElements.searchButton.addEventListener('click', filterGames);
+            domElements.closeModal.addEventListener('click', hideModal);
+            
+            // Event listeners para o modal de anúncio
+            domElements.closeAnnouncementModal.addEventListener('click', closeAnnouncement);
+            domElements.goToHydraButton.addEventListener('click', goToHydraPage);
+        }
+
+        function setupScrollListener() {
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.scrollY;
+                
+                if (Math.abs(currentScroll - lastScroll) > 50) {
+                    if (currentScroll > 50) {
+                        domElements.navbar.classList.add('scrolled');
+                    } else {
+                        domElements.navbar.classList.remove('scrolled');
+                    }
+                    lastScroll = currentScroll;
+                }
+            }, { passive: true });
+        }
+
+        // Funções para o modal de anúncio
+        function checkAndShowAnnouncement() {
+            const dontShowAgain = localStorage.getItem('dontShowHydraAnnouncement');
+            if (!dontShowAgain) {
+                setTimeout(() => {
+                    domElements.announcementModal.classList.add('active');
+                }, 1500); // Mostrar após 1.5 segundos
+            }
+        }
+
+        function closeAnnouncement() {
+            if (domElements.dontShowAgain.checked) {
+                localStorage.setItem('dontShowHydraAnnouncement', 'true');
+            }
+            domElements.announcementModal.classList.remove('active');
+        }
+
+        function goToHydraPage() {
+            closeAnnouncement();
+            window.location.href = 'hydra';
+        }
+
+        function showModal() {
+            domElements.downloadModal.classList.add('active');
+        }
+
+        function hideModal() {
+            domElements.downloadModal.classList.remove('active');
+        }
+
+        async function preloadAllSources() {
+            domElements.loading.style.display = 'flex';
+            
+            try {
+                const sourceIds = Object.keys(SOURCE_CONFIG);
+                for (const sourceId of sourceIds) {
+                    try {
+                        const response = await axios.get(SOURCE_CONFIG[sourceId].url, {
+                            timeout: 10000
+                        });
+                        allSourcesData[sourceId] = response.data.downloads || [];
+                    } catch (error) {
+                        console.error(`Error loading ${sourceId}:`, error);
+                        allSourcesData[sourceId] = [];
+                    }
+                }
+            } catch (error) {
+                console.error('Error in preloading:', error);
+            } finally {
+                domElements.loading.style.display = 'none';
+            }
+        }
+
+        async function loadGames() {
+            domElements.loading.style.display = 'flex';
+            
+            try {
+                gamesData = (allSourcesData['source'] || []).map(game => ({
+                    ...game,
+                    source: 'source',
+                    isTorrent: SOURCE_CONFIG['source'].isTorrent
+                }));
+                
+                filterGames();
+            } catch (error) {
+                console.error('Error loading games:', error);
+                showErrorState();
+            } finally {
+                domElements.loading.style.display = 'none';
+            }
+        }
+
+        function showErrorState() {
+    domElements.gamesGrid.innerHTML = `
+        <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
+            <i class="fas fa-question-circle" style="font-size: 48px; color: #e63946; margin-bottom: 20px;"></i>
+            <h3 style="color: white; margin-bottom: 10px;">Error loading games</h3>
+            <p style="color: rgba(255,255,255,0.6);">Please try again later</p>
+            <button onclick="window.location.reload()" style="margin-top: 20px; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer;">Retry</button>
+        </div>
+    `;
+}
+
+        function filterGames() {
+            const searchTerm = domElements.searchInput.value.toLowerCase().trim();
+            filteredGames = gamesData.filter(game => 
+                game.title.toLowerCase().includes(searchTerm)
+            );
+            
+            pagination.reset();
+        }
+
+        function displayGames(games) {
+            if (!games || games.length === 0) {
+                domElements.gamesGrid.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                            <line x1="16" y1="8" x2="2" y2="22"></line>
+                            <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                        </svg>
+                        <h3 style="color: white; margin-bottom: 10px;">No games found</h3>
+                        <p style="color: rgba(255,255,255,0.6);">Adjust your search or try different keywords</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const fragment = document.createDocumentFragment();
+            
+            games.forEach(game => {
+                const card = document.createElement('div');
+                card.className = 'game-card';
+                card.innerHTML = `
+                    <div class="game-info">
+                        <h3 class="game-title" title="${escapeString(game.title)}">${escapeString(game.title)}</h3>
+                        <div class="game-meta">
+                            <div class="game-size">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                ${escapeString(game.fileSize)}
+                            </div>
+                            <button class="download-button" onclick="handleDownload('${escapeString(game.title)}', ${escapeString(JSON.stringify(game.uris))}, ${game.isTorrent})" aria-label="Download ${escapeString(game.title)}">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Download
+                                ${game.uris.length > 1 ? `<span style="font-size: 0.8rem; background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">${game.uris.length}</span>` : ''}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                fragment.appendChild(card);
+            });
+            
+            domElements.gamesGrid.innerHTML = '';
+            domElements.gamesGrid.appendChild(fragment);
+        }
+
+        function escapeString(str) {
+            if (!str) return '';
+            return str.toString()
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        window.handleDownload = function(title, uris, isTorrent) {
+            if (!uris || uris.length === 0) return;
+
+            if (uris.length === 1) {
+                window.open(uris[0], '_blank', 'noopener,noreferrer');
+                return;
+            }
+
+            showDownloadOptions(title, uris);
+        };
+
+        function showDownloadOptions(title, uris) {
+            domElements.modalTitle.textContent = title;
+            
+            const initialUris = uris.slice(0, 5);
+            
+            domElements.modalBody.innerHTML = `
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Choose your download option:</p>
+                <div id="downloadOptionsContainer">
+                    ${initialUris.map((uri, index) => createDownloadOption(uri, index + 1)).join('')}
+                </div>
+                ${uris.length > 5 ? `
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button id="loadMoreOptions" style="background: rgba(230,57,70,0.2); border: none; color: var(--primary); padding: 8px 15px; border-radius: 5px; cursor: pointer;">
+                            Show more options (${uris.length - 5} remaining)
+                        </button>
+                    </div>
+                ` : ''}
+            `;
+            
+            if (uris.length > 5) {
+                const loadMoreBtn = document.getElementById('loadMoreOptions');
+                loadMoreBtn.addEventListener('click', () => {
+                    const remainingUris = uris.slice(5);
+                    const container = document.getElementById('downloadOptionsContainer');
+                    
+                    remainingUris.forEach((uri, index) => {
+                        container.appendChild(createDownloadOptionElement(uri, index + 6));
+                    });
+                    
+                    loadMoreBtn.style.display = 'none';
+                });
+            }
+            
+            showModal();
+        }
+
+        function createDownloadOption(uri, index) {
+            const hostname = uri.startsWith('http') ? 
+                new URL(uri).hostname.replace('www.', '') : 
+                uri.split('/')[0];
+            
+            return `
+                <button class="download-option" onclick="handleDownloadOption('${escapeString(uri)}')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <div class="option-info">
+                        <div>${escapeString(hostname)}</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Option ${index}</div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </button>
+            `;
+        }
+
+        function createDownloadOptionElement(uri, index) {
+            const element = document.createElement('button');
+            element.className = 'download-option';
+            element.onclick = () => handleDownloadOption(uri);
+            element.innerHTML = createDownloadOption(uri, index);
+            return element;
+        }
+
+        window.handleDownloadOption = function(uri) {
+            hideModal();
+            window.open(uri, '_blank', 'noopener,noreferrer');
+        };
+    </script>
+</body>
+</html>
