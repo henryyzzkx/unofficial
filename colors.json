@@ -1,7 +1,7 @@
 {
   "title": "🎨 Escolha sua cor - Personalize seu Perfil",
   "description": "Reaja com o emoji correspondente à cor que deseja para o seu perfil!\nVocê pode mudar a cor a qualquer momento reagindo novamente. 🌈\n\n@Black\n@DimGray\n@Gray\n@DarkGray\n@Silver\n@LightGrey\n@Gainsboro\n@White\n@SlateBlue\n@DarkSlateBlue\n@MidnightBlue\n@Navy\n@DarkBlue\n@MediumBlue\n@Blue\n@CornflowerBlue\n@RoyalBlue\n@DodgerBlue\n@DeepSkyBlue\n@LightSkyBlue\n@SkyBlue\n@LightBlue\n@SteelBlue\n@LightSteelBlue\n@SlateGray\n@LightSlateGray\n@Cyan\n@DarkTurquoise\n@Turquoise\n@MediumTurquoise\n@LightSeaGreen\n@DarkCyan\n@Seal\n@Aquamarine\n@MediumAquamarine\n@CadetBlue\n@MediumSpringGreen\n@SpringGreen\n@PaleGreen\n@LightGreen\n@DarkSeaGreen\n@MediumSeaGreen\n@SeaGreen\n@DarkGreen\n@Green\n@ForestGreen\n@LimeGreen\n@Lime\n@LawnGreen\n@Chartreuse\n@GreenYellow\n@YellowGreen\n@OliveDrab\n@DarkOliveGreen\n@Olive\n@DarkKhaki\n@Goldenrod\n@DarkGoldenrod\n@SaddleBrown\n@Siena\n@RosyBrown\n@Peru\n@Chocolate\n@SandyBrown\n@NavajoWhite\n@Wheat\n@BurlyWood\n@Tan\n@MediumSlateBlue\n@MediumPurple\n@BlueViolet\n@Indigo\n@DarkViolet\n@DarkOrchid\n@MediumOrchid\n@Purple\n@DarkMagenta\n@Fuchsia\n@Violet\n@Orchid\n@Plum\n@MediumVioletRed\n@DeepPink\n@HotPink\n@PaleVioletRed\n@LightPink\n@Pink\n@LightCoral\n@IndianRed\n@Crimson\n@Maroon\n@DarkRed\n@FireBrick\n@Brown\n@Salmon\n@DarkSalmon\n@LightSalmon\n@Coral\n@Tomato\n@Red\n@OrangeRed\n@DarkOrange\n@Orange\n@Gold\n@Yellow\n@Khaki",
-  "color": 0x808080,
+  "color": "#808080",
   "footer": {
     "text": "Equipe Unofficial"
   }
